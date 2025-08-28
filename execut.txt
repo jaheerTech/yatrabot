@@ -1,0 +1,27 @@
+step:1 
+cd D:\mybot
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe app.py
+
+step2:
+open given port/ host address.
+ctrl+c  (exit)
+
+step3:
+Docker container 
+1) Ensure files are in the same folder
+Files should be together in D:\mybot\mybot:
+app.py
+requirements.txt
+Dockerfile
+.dockerignore
+Verify:Get-ChildItem
+
+2) Build the image
+docker build -t mybot:latest .
+
+3)Run the container (map port 5000)
+docker run --rm -p 5000:5000 mybot:latest
+
+docker stop mybot(for stop container)
